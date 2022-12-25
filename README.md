@@ -10,6 +10,9 @@ composer require nwidart/laravel-modules
 Install this package before installing the module:
 ```php
 composer require joshbrw/laravel-module-installer
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
 ```
 
 # Installation
