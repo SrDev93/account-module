@@ -7,10 +7,14 @@ composer require nwidart/laravel-modules
 ```
 
 # requires
-Install this package before installing the module:
+Install this packages before installing the module:
 ```php
 composer require joshbrw/laravel-module-installer
 composer require spatie/laravel-permission
+```
+
+and run the following commands:
+```php
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan optimize:clear
 ```
