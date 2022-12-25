@@ -1,0 +1,27 @@
+{
+    "name": "srdev93/account-module",
+    "description": "",
+    "type": "laravel-module",
+    "authors": [
+        {
+            "name": "sajad Rahmani",
+            "email": "sst.sajad.e@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Account\\": ""
+        }
+    },
+    "require": {
+
+    }
+}
