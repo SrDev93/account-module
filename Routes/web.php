@@ -15,12 +15,12 @@ use Modules\Account\Http\Controllers\UserController;
 |
 */
 
-Route::prefix('')->name('auth.')->middleware('guest')->group(function () {
-    Route::get('register', [RegisterController::class, 'register_show'])->name('register.show');
-    Route::post('register', [RegisterController::class, 'register'])->name('register.store');
-    Route::get('login', [LoginController::class, 'login_show'])->name('login.show');
-    Route::post('login', [LoginController::class, 'login'])->name('login');
-});
+//Route::prefix('')->name('auth.')->middleware('guest')->group(function () {
+//    Route::get('register', [RegisterController::class, 'register_show'])->name('register.show');
+//    Route::post('register', [RegisterController::class, 'register'])->name('register.store');
+//    Route::get('login', [LoginController::class, 'login_show'])->name('login.show');
+//    Route::post('login', [LoginController::class, 'login'])->name('login');
+//});
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
