@@ -12,6 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Modules\Advertisement\Entities\Advertisement;
 use Modules\Base\Entities\Photo;
 use Modules\Project\Entities\Project;
+use Modules\Shop\Entities\Factor;
+use Modules\Shop\Entities\Seller;
 use Spatie\Permission\Traits\HasRoles;
 
 
@@ -39,35 +41,30 @@ class User extends Authenticatable
         return $this->morphOne(Photo::class, 'pictures');
     }
 
-    public function honors()
+    public function seller()
     {
-        return $this->hasMany(Honor::class,"user_id");
+        return $this->hasOne(Seller::class);
     }
 
-    public function projects()
+    public function address()
     {
-        return $this->hasMany(Project::class,"user_id");
+        return $this->hasMany(Factor::class);
     }
 
-    public function ads()
+    public function factor()
     {
-        return $this->hasMany(Advertisement::class,"user_id");
-    }
-
-    public function elections()
-    {
-        return $this->belongsToMany(Election::class, 'election_user');
+        return $this->hasMany(Factor::class);
     }
 
     protected static function boot()
     {
         parent::boot();
 
-        self::deleting(function ($project){
-            $project->photo()->get()->each(function ($photo){
-                File::delete($photo->path);
-                $photo->delete();
-            });
+        self::deleting(function ($user){
+            if ($user->photo){
+                File::delete($user->photo->path);
+                $user->photo->delete();
+            }
         });
     }
 }

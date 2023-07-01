@@ -1,12 +1,18 @@
 @extends('layouts.admin')
-
+@push('stylesheets')
+    <style>
+        .select2-container {
+            width: 100% !important;
+        }
+    </style>
+@endpush
 @section('content')
     <!-- CONTAINER -->
     <div class="main-container container-fluid">
 
     @include('account::front.role_permission.partial.header')
 
-        <!-- ROW -->
+    <!-- ROW -->
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
@@ -14,31 +20,32 @@
                         <h3 class="card-title">افزودن نقش</h3>
                     </div>
                     <div class="card-body">
-                        
-                        <form action="{{ route('admin.role-permission.store') }}" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
-                            
-                            <div class="col-md-6">
+
+                        <form action="{{ route('admin.role-permission.store') }}" method="post"
+                              enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+
+                            <div class="col-md-12">
                                 <label for="role" class="form-label">نام نقش</label>
-                                <input type="text" name="role" class="form-control" id="role" required value="{{ old('role') }}">
+                                <input type="text" name="role" class="form-control" id="role" required
+                                       value="{{ old('role') }}">
                                 <div class="invalid-feedback">لطفا نام نقش را وارد کنید</div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-md-12">
                                 <label class="form-label">دسترسی ها</label>
-                                <select multiple class="form-control select2-show-search form-select" data-placeholder="دسترسی ها" name="permission[]">
-                                    <option label="انتخاب کنید"></option>
+                                <select multiple class="form-control select2 select2-show-search form-select"
+                                        data-placeholder="دسترسی ها" name="permission[]">
+                                    <option value="role_permission">نقش ها و دسترسی ها</option>
+                                    <option value="users">مدیریت کاربران</option>
                                     <option value="slider">اسلایدر</option>
-                                    <option value="province_city">استان ها و شهر ها</option>
-                                    <option value="setting">تنظیمات</option>
-                                    <option value="ads">آگهی ها</option>
-                                    <option value="project">پروژه ها</option>
-                                    <option value="education">آموزش</option>
-                                    <option value="news">اخبار</option>
-                                    <option value="event">رویداد ها</option>
+                                    <option value="shop">فروشگاه</option>
+                                    <option value="blogs">مقالات</option>
                                     <option value="page">مدیریت صفحات</option>
+                                    <option value="socials">شبکه های اجتماعی</option>
+                                    <option value="setting">تنظیمات</option>
                                 </select>
                             </div>
-                            
+
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">ارسال فرم</button>
                                 @csrf

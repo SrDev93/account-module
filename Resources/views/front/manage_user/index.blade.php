@@ -23,7 +23,6 @@
                                     <th class="wd-15p border-bottom-0">نام</th>
                                     <th class="wd-15p border-bottom-0">نام خانوادگی</th>
                                     <th class="wd-15p border-bottom-0">شماره تماس</th>
-                                    <th class="wd-15p border-bottom-0">نوع</th>
                                     <th class="wd-15p border-bottom-0">نقش</th>
                                     <th class="wd-15p border-bottom-0">وضعیت</th>
                                     <th class="wd-20p border-bottom-0">عملیات</th>
@@ -36,13 +35,12 @@
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->last_name }}</td>
                                         <td>{{ $user->mobile }}</td>
-                                        <td>{{ $user->type }}</td>
                                         <td>{{ $user->getRoleNames()->first() }}</td>
                                         <td>
                                             @if($user->status == 1)
                                                 تایید شده
                                             @elseif($user->status == 0)
-                                                در انتظار تایید 
+                                                در انتظار تایید
                                             @elseif($user->status == -1)
                                                 مسدود شده
                                             @endif
@@ -55,8 +53,8 @@
                                             {{-- <a href="{{ route('admin.manage-user.edit', $user->id) }}" class="btn btn-danger fs-14 text-white edit-icn" title="ویرایش">
                                                 <i class="fe fe-slash"></i>
                                             </a> --}}
-                                            
-                                            
+
+
                                         </td>
                                     </tr>
                                 @endforeach
