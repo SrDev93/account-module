@@ -129,10 +129,6 @@ class ManageUserController extends Controller
                     $p->path = file_store($request->photo, 'assets/uploads/photos/users/','photo_');
                     $manage_user->photo()->save($p);
                 }
-            }else{
-                if ($manage_user->photo){
-                    $manage_user->photo->save();
-                }
             }
 
             $manage_user->syncRoles($request->role);
