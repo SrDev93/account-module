@@ -22,7 +22,7 @@ use Modules\Account\Http\Controllers\UserController;
 //    Route::post('login', [LoginController::class, 'login'])->name('login');
 //});
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('panel')->name('admin.')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
     Route::post('profile-update', [UserController::class, 'update'])->name('profile.update');
 
